@@ -3,6 +3,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # Find Bitwuzla installation
 list(PREPEND CMAKE_PREFIX_PATH "${BITWUZLA_DIR}")
 find_package(PkgConfig REQUIRED)
+set(ENV{PKG_CONFIG_PATH} "${BITWUZLA_DIR}/lib64/pkgconfig:$ENV{PKG_CONFIG_PATH}")
 pkg_check_modules(BITWUZLA REQUIRED bitwuzla)
 
 add_library(smt-switch-bitwuzla "${SMT_SWITCH_LIB_TYPE}"
